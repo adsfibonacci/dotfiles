@@ -17,8 +17,10 @@ set $menu rofi -show drun
 output * bg $HOME/Pictures/black-swordsman.jpg fill
 for_window [class="Emacs"] opacity 0.80
 for_window [app_id="Alacritty"] opacity 0.80
+for_window [app_id="pcmanfm"] opacity 0.85
 
 bindsym $mod+Shift+s exec grim -g "$(slurp)" -t png - | wl-copy -t image/png
+bindsym $mod+Shift+f exec pcmanfm
 
 gaps inner 4
 gaps outer 0
