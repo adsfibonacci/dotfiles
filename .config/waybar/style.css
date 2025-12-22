@@ -98,6 +98,7 @@
 #workspaces button:hover,
 #taskbar button:hover {
     color: #000000;            /* white text/icon */
+    background: #ffffff;
 }
 
 #workspaces button.focused,
