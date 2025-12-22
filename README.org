@@ -1,0 +1,4 @@
+Symlink into $HOME/.local/share/applications
+
+mkdir -p $HOME/.local/share/applications
+ln -s $HOME/.config/scripts/dolphin-emacs-term.desktop $HOME/.local/share/applications/dolphin-emacs-term.desktop

@@ -1,0 +1,6 @@
+#!/bin/sh
+
+DIR="${1:-$PWD}"
+
+emacsclient -n \
+  --eval "(open-ansi-term-here \"${DIR//\\/\\\\}\")"

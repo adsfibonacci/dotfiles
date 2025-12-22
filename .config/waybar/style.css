@@ -1,0 +1,195 @@
+@define-color highlight #a85878 ;
+@define-color base1  #19191e ;
+
+@keyframes blink-warning {
+    70% {
+        color: #000000;/*white;*/
+    }
+
+    to {
+        color: white;
+        background-color: orange;
+    }
+}
+
+@keyframes blink-critical {
+    70% {
+      color: #000000;
+    }
+
+    to {
+        color: white;
+        background-color: red;
+    }
+}
+
+/* -----------------------------------------------------------------------------
+ * Base styles
+ * -------------------------------------------------------------------------- */
+
+/* Reset all styles */
+* {
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    margin: 1px;
+    padding: 0;
+}
+
+/* The whole bar */
+#waybar {
+    background: rgba(10, 10, 40, 0.0);
+    color: #e3e3ea;
+    font-family: JetBrainsMono;
+    font-size: 13px;
+}
+
+#sysinf {
+    background: rgba(25, 25, 30, 0.1);
+    border-radius: 10px;
+    padding: 4px 6px;
+}
+
+#network,
+#cpu,
+#memory,
+#backlight,
+#pulseaudio,
+#clock,
+#battery {
+    padding: 2px 2px;
+}
+
+/* Every modules */
+#tray,
+#custom-spotify {
+    padding:0.3rem 0.3rem;
+    margin: 1px 0px;
+    background: rgba(25, 25, 30, 0.1);
+    border-radius: 10px;
+}
+#custom-spotify {
+    font-weight:bold;
+}
+
+/* -----------------------------------------------------------------------------
+ * Module styles
+ * -------------------------------------------------------------------------- */
+#works,
+#taskbar {
+    background: rgba(25, 25, 30, 0.1);
+    border-radius: 10px;
+    padding: 4px 6px;
+}
+
+#workspaces {
+    font-size:13px;
+    font-weight:bold;
+}
+
+#workspaces button,
+#taskbar button{
+    border-radius: 5px;
+    color: #eceff4;
+    padding: 1px 3px;
+    margin-right: 2px;
+    margin-left: 2px;
+}
+#workspaces button:hover,
+#taskbar button:hover {
+    color: #000000;            /* white text/icon */
+}
+
+#workspaces button.focused,
+#taskbar button.focused {
+    border: 1px solid #d8dee9;
+}
+
+#workspaces button.urgent {
+    border-color: #c9545d;
+    color: #c9545d;
+}
+
+#window {
+    font-weight: bold;
+}
+
+#network.disconnected {
+    color: orange;
+}
+
+#cpu.warning,
+#cpu.critical {
+    border-radius:6px;
+}
+
+#cpu.warning {
+    color: orange;
+}
+
+#cpu.critical {
+    color: red;
+}
+
+#memory {
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#memory.warning {
+    color: orange;
+ }
+
+#memory.critical {
+    color: red;
+    animation-name: blink-critical;
+    animation-duration: 2s;
+    padding-left:5px;
+    padding-right:5px;
+}
+
+#memory.warning,
+#memory.critical {
+    border-radius:6px;
+}
+
+#backlight.icon {
+}
+
+#pulseaudio {
+}
+
+#pulseaudio.muted {
+    color: @highlight;
+}
+
+#battery {
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#battery.warning,
+#battery.critical {
+    border-radius:6px;
+}
+
+#battery.warning {
+    color: orange;
+}
+
+#battery.critical {
+    color: red;
+}
+
+#battery.warning.discharging {
+    animation-name: blink-warning;
+    animation-duration: 3s;
+}
+
+#battery.critical.discharging {
+    animation-name: blink-critical;
+    animation-duration: 2s;
+}
+

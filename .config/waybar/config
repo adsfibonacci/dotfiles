@@ -1,0 +1,194 @@
+{
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "height": 10, // Auto-height is used when commented
+    // "width": 1280, // Full screen width when commented
+    "spacing": 0, // Gaps between modules (in px)
+    // See `man waybar` for more configuration options
+
+// Configuration - modules-left
+
+    "modules-left": [
+    	"group/works",
+	"wlr/taskbar"
+    ],
+    "modules-center": [
+    		      "custom/spotify"
+    ],
+    "modules-right": [
+        "tray",
+	"group/sysinf"
+    ],
+    "group/sysinf": {
+    		    "orientation": "horizontal",
+		    "modules": [
+		    	       "network",
+			       "cpu",
+			       "memory",
+			       "backlight",
+			       "pulseaudio",
+			       "clock",
+			       "battery"
+		    ]
+    },
+    "group/works": {
+    		   "orientation": "horizontal",
+		   "modules": [
+		   	      "sway/scratchpad",
+			      "custom/launcher",
+			      "sway/workspaces"
+		   ]
+    },
+
+    "custom/spotify": {
+    "exec": "/usr/bin/python $HOME/.config/scripts/mediaplayer.py --player spotify",
+    "format": "{}  ",
+    "return-type": "json",
+    "on-click": "playerctl play-pause",
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous"
+},
+
+    "custom/launcher": {
+        "format":"<span size='x-large'></span>",
+	"tooltip": true,
+	"tooltip-format": "Left: Apps | Right: Power",
+        "on-click": "exec rofi -show drun",
+        "on-click-right": "exec $HOME/.config/scripts/power.sh"
+    },
+    "sway/scratchpad": {
+    		       "format": "{icon}{count}",
+		       "show-empty": false,
+		       "format-icons": ["", ""],
+		       "tooltip": true,
+		       "tooltip-format": "{app}: {title}"
+    },
+    
+  "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "warp-on-scroll": false,
+        "persistent-workspaces": {
+          "1": [],
+          "2": [],
+          "3": []
+        },
+        "format": "{icon}",
+        "format-icons": {
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "6",
+            "7": "7",
+            "8": "8",
+            "9": "9",
+            "10": "10"
+        }
+    },
+    "wlr/taskbar": {
+	"format": "{icon}",
+	"icon-size": 14,
+	"icon-theme": "Numix-Circle",
+	"tooltip-format": "{title}",
+	"on-click": "activate",
+	"on-click-middle": "close",
+	"app_ids-mapping": {
+		"firefoxdeveloperedition": "firefox-developer-edition"
+	},
+	"rewrite": {
+		"Firefox Web Browser": "Firefox"
+	}
+},
+
+
+
+// Configuration - modules-right
+
+    "cpu": {
+        "interval": 5,
+        "format": "{usage:>3}% ",
+        "states": {
+            "warning": 70,
+            "critical": 90,
+        },
+    },
+    
+    "memory": {
+        "interval": 5,
+        "format": "{used:.0f}/8 G  ",
+        "states": {
+            "warning": 70,
+            "critical": 90
+        }
+    },
+
+    "backlight": {
+        "format": "{percent}%{icon}",
+        "format-icons": ["󰄰", "󰪞", "󰪟", "󰪠", "󰪡", "󰪢", "󰪣", "󰪤", "󰪥"],
+        "tooltip-format": "Backlight (Scroll): {percent:}%",
+	"on-scroll-down": "sh -c 'brightnessctl -c backlight get > 5 && brightnessctl -c backlight set 5%- || brightnessctl -c backlight set 0'",
+
+        "on-scroll-up": "brightnessctl -c backlight set +5%"
+    },
+
+    "pulseaudio": {
+        "scroll-step": 2,
+        "format": "{volume}%{icon}",
+        "format-muted":"0%",
+        "format-icons": {
+            "headphones": "",
+            "handsfree": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "on-click": "pavucontrol"
+    },
+
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}%{icon}",
+        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    },
+
+    "clock": {
+//        "format": "{:%H:%M}",
+        "format": "{:%OI:%M}",
+        "tooltip-format": "{:%A %m/%d}\n\n<tt><small>{calendar}</small></tt> ",
+        "calendar": {
+            "on-scroll": 1,
+            "format": {
+                "months":     "<span color='#ffead3'><b>{}</b></span>",
+                "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+            },
+        },
+        "actions": {
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        },
+    },
+
+    "tray": {
+        "icon-size": 14,
+        "spacing":5
+     },    
+    "network": {
+        "format-disabled": "Disabled",
+        "tooltip-format-wifi": " {bandwidthDownBits:>} 󰶡 {bandwidthUpBits:>} 󰶣",
+        "format-wifi": "{essid}  ",
+        "tooltip-format-ethernet": "󰈀 {bandwidthDownBits:>} 󰶡 {bandwidthUpBits:>} 󰶣",
+        "format-ethernet": "{ifname}: {ipaddr}/{cidr} 󰈀",
+        "format-disconnected": " Disconnected",
+        "interval": 2
+    }
+}
