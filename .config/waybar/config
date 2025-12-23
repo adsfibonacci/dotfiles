@@ -50,7 +50,7 @@
 },
 
     "custom/launcher": {
-        "format":"<span size='x-large'></span>",
+        "format":"<span size='x-large'> </span>",
 	"tooltip": true,
 	"tooltip-format": "Left: Apps | Right: Power",
         "on-click": "exec rofi -show drun",
