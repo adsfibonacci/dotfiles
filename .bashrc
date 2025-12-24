@@ -11,6 +11,13 @@ if [ -z "$SWAYSOCK" ] && [ -e /run/user/1000/sway-ipc.0 ]; then
 fi
 
 eval "$(starship init bash)"
+# Load pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
