@@ -87,10 +87,10 @@ symbol = ".NET "
 read_only = " ro"
 
 [directory.substitutions]
-"Documents" = "󰈙 "
-"Downloads" = " "
-"Music" = " "
-"Pictures" = " "
+"Documents" = ""
+"Downloads" = ""
+"Music" = ""
+"Pictures" = ""
 "minimal-genome" = ""
 
 [docker_context]
@@ -148,7 +148,8 @@ symbol = "hg "
 truncation_symbol = "..."
 
 [hostname]
-ssh_symbol = "ssh "
+ssh_only = false
+ssh_symbol = "🌐 "
 
 [java]
 symbol = "java "
