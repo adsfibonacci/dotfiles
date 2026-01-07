@@ -1,0 +1,11 @@
+{
+    "plugins": {},
+    "customCspRules": {
+        "discord-mica.pages.dev": [
+            "connect-src",
+            "img-src",
+            "style-src",
+            "font-src"
+        ]
+    }
+}
