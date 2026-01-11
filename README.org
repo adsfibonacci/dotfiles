@@ -1,4 +1,49 @@
-Symlink into $HOME/.local/share/applications
+#+title: Home System Configs
+#+author: Alex Speigle
+#+startup: indent
 
-mkdir -p $HOME/.local/share/applications
-ln -s $HOME/.config/scripts/dolphin-emacs-term.desktop $HOME/.local/share/applications/dolphin-emacs-term.desktop
+* Arch Specific Dependencies
+
+#+begin_src bash
+  sudo pacman -S emacs \\
+  rofi \\
+  grim \\
+  slurp \\
+  pcmanfm \\
+  gnome-keyring \\
+  kdeconnect \\
+  remmina \\
+  waybar \\
+  playerctl \\
+  brightnessctl \\
+  network-manager-applet \\
+  swaybg \\
+  acpi
+#+end_src
+
+* AUR Dependencies
+#+begin_src bash
+  https://aur.archlinux.org/swayfx.git
+  https://aur.archlinux.org/scenefx0.4.git
+  https://aur.archlinux.org/vesktop.git
+#+end_src
+
+* Emacs
+Start Emacs as a daemon on login with
+#+begin_src bash
+  systemctl --user enable emacs  
+#+end_src
+
+
+* Systemd Configs
+** Laptop Specific 
+Ensure the entire content of the [Login] section of /etc/systemd//logind.conf is commeted out.
+
+The file .config/powerctrl/lid.sh controls the behavior of the laptop lid.
+- Lid Closed and unplugged : Powers off
+- Lid Closed and plugged in : Lock screen
+- Lid Closed and Docked : Ignore
+- All Else : Ignore
+
+The LAPTOP_PANEL variable may have to change depending on the type of system. 
+
