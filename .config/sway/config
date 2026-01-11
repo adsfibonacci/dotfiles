@@ -14,7 +14,7 @@ set $menu rofi -show drun
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /run/current-system/sw/share/backgrounds/sway/)
-output * bg $HOME/.config/sway/black-swordsman.jpg fill
+output * bg /home/alex/.config/sway/black-swordsman.jpg fill
 for_window [class="Emacs"] opacity 0.80
 for_window [app_id="Alacritty"] opacity 0.80
 for_window [app_id="pcmanfm"] opacity 0.85
@@ -25,6 +25,8 @@ bindsym $mod+Shift+f exec pcmanfm
 exec_always --no-startup-id gnome-keyring-daemon --start --components=secrets,ssh
 exec_always --no-startup-id kdeconnect-indicator
 exec_always --no-startup-id remmina --icon
+
+exec_always ~/.local/bin/lid.sh
 
 gaps inner 4
 gaps outer 0
