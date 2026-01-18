@@ -3,12 +3,13 @@
 #+startup: indent
 
 * Arch Specific Dependencies
-
+In some systems (looking at you Wayland) I replace the "emacs" package with "emacs-wayland".
 #+begin_src bash
   sudo pacman -S emacs \\
   rofi \\
   grim \\
   slurp \\
+  wl-clipboard \\
   pcmanfm \\
   gnome-keyring \\
   kdeconnect \\
@@ -18,7 +19,8 @@
   brightnessctl \\
   network-manager-applet \\
   swaybg \\
-  acpi
+  acpi \\
+  jq
 #+end_src
 
 * AUR Dependencies
