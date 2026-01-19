@@ -28,6 +28,7 @@ In some systems (looking at you Wayland) I replace the "emacs" package with "ema
   https://aur.archlinux.org/swayfx.git
   https://aur.archlinux.org/scenefx0.4.git
   https://aur.archlinux.org/vesktop.git
+  https://aur.archlinux.org/wdisplays-git.git
 #+end_src
 
 * Emacs
