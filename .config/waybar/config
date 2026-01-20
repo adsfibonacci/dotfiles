@@ -17,7 +17,7 @@
     ],
     "modules-right": [
         "tray",
-	"group/sysinf"
+        	"group/sysinf"
     ],
     "group/sysinf": {
     		    "orientation": "horizontal",
@@ -56,7 +56,7 @@
         "on-click": "exec rofi -show drun"
     },
     "custom/power": {
-    		    "format": "<span size='x-large'>⏻</span>",
+    		    "format": "<span size='x-large'>⏻ </span>",
 		    "tooltip": true,
 		    "tooltip-format": "Power Options",
 		    "on-click": "exec $HOME/.config/scripts/power.sh"
@@ -165,7 +165,7 @@
 
     "clock": {
 //        "format": "{:%H:%M}",
-        "format": "{:%OI:%M}",
+        "format": "{:%OI:%M}  ",
         "tooltip-format": "{:%A %m/%d}\n\n<tt><small>{calendar}</small></tt> ",
         "calendar": {
             "on-scroll": 1,
